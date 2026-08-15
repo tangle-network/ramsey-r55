@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "kind": "verifiable-task-manifest",
+  "display": {
+    "name": "Improve the R(5,5) lower bound",
+    "category": "Mathematics",
+    "summary": "Find a 43-vertex graph with neither a 5-clique nor an independent 5-set. Exact enumeration checks every candidate."
+  },
+  "metric": {
+    "name": "forbidden_sets",
+    "unit": "sets",
+    "direction": "lower",
+    "baseline": 120,
+    "target": 0
+  },
+  "experiment": {
+    "title": "R(5,5) edge-flip search",
+    "summary": "Eighteen deterministic searches tested one million edge moves. The closest candidate has two forbidden five-vertex sets; no run solved R(5,5).",
+    "ranAt": "2026-08-15T00:00:00Z",
+    "method": "Ten 20,000-step searches ran sequentially. Eight 100,000-step searches ran in parallel. Exact enumeration checked the closest candidate.",
+    "resultRef": "/research/ramsey-r55/results-2026-08-15.json",
+    "sourceRef": "/research/ramsey-r55/task-spec-progress.json",
+    "stats": [
+      {
+        "label": "Edge moves",
+        "value": "1,000,000"
+      },
+      {
+        "label": "Runs",
+        "value": "18"
+      },
+      {
+        "label": "Closest",
+        "value": "2 forbidden sets"
+      },
+      {
+        "label": "Solved",
+        "value": "0 of 18"
+      }
+    ]
+  },
+  "participation": {
+    "taskRef": "/research/ramsey-r55/task-spec-progress.json",
+    "files": [
+      {
+        "name": "task.json",
+        "ref": "/research/ramsey-r55/task-spec-progress.json"
+      },
+      {
+        "name": "finite-graph-v1.py",
+        "ref": "/research/checkers/finite-graph-v1.py"
+      },
+      {
+        "name": "candidate.g6",
+        "ref": "/research/ramsey-r55/current.g6"
+      }
+    ],
+    "check": {
+      "command": "python3",
+      "args": [
+        "finite-graph-v1.py",
+        "--check",
+        "candidate.g6",
+        "--vertices",
+        "43",
+        "--clique-size",
+        "5",
+        "--independent-size",
+        "5"
+      ]
+    }
+  },
+  "artifacts": {
+    "baselineCandidate": "/research/ramsey-r55/start.g6",
+    "currentCandidate": "/research/ramsey-r55/current.g6",
+    "currentEvidence": "/research/ramsey-r55/evidence-progress.json"
+  },
+  "task": {
+    "version": 1,
+    "adapterRef": "task:finite-graph-v1",
+    "configRef": "finite-graph:config:eyJjbGlxdWVfc2l6ZSI6NSwiaW5kZXBlbmRlbnRfc2l6ZSI6NSwic2NoZW1hX3ZlcnNpb24iOjEsInZlcnRleF9jb3VudCI6NDN9",
+    "executionPolicyRef": "policy:exact-enumeration-v1",
+    "baselineRef": "finite-graph:baseline:120",
+    "evaluatorRef": "evaluator:finite-graph-v1",
+    "acceptance": {
+      "requirements": [
+        {
+          "metric": "forbidden_sets",
+          "maxValue": 2,
+          "minBaselineDelta": 118,
+          "minSampleCount": 1,
+          "maxUncertainty": 0
+        }
+      ]
+    },
+    "ranking": {
+      "metric": "forbidden_sets"
+    },
+    "funding": {
+      "adapterRef": "funding:terminal",
+      "configRef": "funding-config:terminal-v1"
+    }
+  }
+}

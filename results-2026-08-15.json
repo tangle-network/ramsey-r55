@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "experiment_id": "ramsey-r55-edge-flip-2026-08-15",
+  "problem": "R(5,5) 43-vertex graph search",
+  "algorithm": "sampled edge-flip simulated annealing v1",
+  "objective": "Minimize K5 cliques plus independent sets of size five",
+  "outcome": {
+    "accepted": false,
+    "main_runs": 18,
+    "search_steps": 1000000,
+    "solved_runs": 0,
+    "best_violations": 2,
+    "runs_at_best": 14,
+    "interpretation": "No run found a 43-vertex Ramsey (5,5) graph. Fourteen runs reached candidates with two forbidden five-vertex sets. This result does not prove that no valid graph exists."
+  },
+  "closest_candidate": {
+    "path": "closest.g6",
+    "seed": 1,
+    "vertices": 43,
+    "cliques": 0,
+    "independent_sets": 2,
+    "file_sha256": "4e0cff7833c47ebe4802fc09e48e80adf4ea28144daa5dde6a2e7340d50b3662",
+    "graph_sha256": "fca6fc7bbeddf04751cb2568be9dc87dfec6bfcbadb908590e74e57414739076",
+    "graph6": "j?Uljp^j}?W@`bIRhHgk\\SY~ECeYS\\CniuKP]RQLdsX^F?b|L?g_SvykSNziSVdZ`P|CxamFHKax[ThPyVUYxAqkY\\_xCfYxNscNtb]k_uFsLru_Jwr`nPMMc^\\qGhwyhfLjTELQ}T]h@qtu^f_Lkpe?",
+    "accepted": false
+  },
+  "provenance": {
+    "executed_at": "2026-08-15",
+    "repository_base_revision": "19bcf5aec534309318e11fb2974186f08016b58f",
+    "python": "3.12.3",
+    "kernel": "Linux 7.0.0-28-generic x86_64",
+    "processor": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "baseline_file": "baseline.g6",
+    "baseline_vertices": 42,
+    "candidate_vertices": 43,
+    "baseline_file_sha256": "ab0b10364ac62ab07f662c0ed4e8b47a44956f63a78356b64ae64ccb6520ecb0",
+    "checker_sha256": "d7af9a1d8efc546cd71b2a0ed483e51bd3a51a8469e26450139c1a9202ec65a7",
+    "search_sha256": "8bac7b5997128bd34e76306d80018a1f1aa99bd7fe716f800e8670bc5e66d276"
+  },
+  "campaigns": [
+    {
+      "id": "breadth",
+      "command": "python3 experiments/ramsey-r55/search.py --seeds 0,1,2,3,4,5,6,7,8,9 --iterations 20000 --sample-size 16 --audit-every 1000",
+      "execution": "sequential",
+      "run_count": 10,
+      "search_steps": 200000,
+      "elapsed_seconds": {
+        "min": 5.275,
+        "median": 5.4885,
+        "p90_inclusive": 7.1824,
+        "max": 7.924,
+        "sum": 60.237
+      },
+      "runs": [
+        {
+          "seed": 0,
+          "start_violations": 143,
+          "best_violations": 45,
+          "best_cliques": 23,
+          "best_independent_sets": 22,
+          "final_violations": 45,
+          "accepted_moves": 2046,
+          "elapsed_seconds": 7.1,
+          "solved": false,
+          "best_graph_sha256": "bc7e02b5fbd38fce9226e379ea30ef1b9e6bc8acab46ed7f5f3f005845429377"
+        },
+        {
+          "seed": 1,
+          "start_violations": 120,
+          "best_violations": 2,
+          "best_cliques": 0,
+          "best_independent_sets": 2,
+          "final_violations": 2,
+          "accepted_moves": 1505,
+          "elapsed_seconds": 5.368,
+          "solved": false,
+          "best_graph_sha256": "fca6fc7bbeddf04751cb2568be9dc87dfec6bfcbadb908590e74e57414739076"
+        },
+        {
+          "seed": 2,
+          "start_violations": 192,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 1585,
+          "elapsed_seconds": 5.277,
+          "solved": false,
+          "best_graph_sha256": "bc3c788f729e7d081046d72437d18b64d724794d28b8eb9ba6f1c1652150ace3"
+        },
+        {
+          "seed": 3,
+          "start_violations": 125,
+          "best_violations": 2,
+          "best_cliques": 0,
+          "best_independent_sets": 2,
+          "final_violations": 2,
+          "accepted_moves": 1418,
+          "elapsed_seconds": 5.373,
+          "solved": false,
+          "best_graph_sha256": "fd6936dd19dc7fbbafd0a7f4294c37fb00015105a285945f1f70f8c5b0b9ff06"
+        },
+        {
+          "seed": 4,
+          "start_violations": 166,
+          "best_violations": 2,
+          "best_cliques": 0,
+          "best_independent_sets": 2,
+          "final_violations": 2,
+          "accepted_moves": 1399,
+          "elapsed_seconds": 5.512,
+          "solved": false,
+          "best_graph_sha256": "fd6936dd19dc7fbbafd0a7f4294c37fb00015105a285945f1f70f8c5b0b9ff06"
+        },
+        {
+          "seed": 5,
+          "start_violations": 114,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 1422,
+          "elapsed_seconds": 5.465,
+          "solved": false,
+          "best_graph_sha256": "1d3317c318446be82e1e20ad1a3370feab70e196df733966b110c4dfc70e3283"
+        },
+        {
+          "seed": 6,
+          "start_violations": 165,
+          "best_violations": 2,
+          "best_cliques": 0,
+          "best_independent_sets": 2,
+          "final_violations": 2,
+          "accepted_moves": 1638,
+          "elapsed_seconds": 5.275,
+          "solved": false,
+          "best_graph_sha256": "394c9d4fb6d589cc48d9c7c34f6d1f5ec554720d3cd4837fe07e0d4b769a3a7e"
+        },
+        {
+          "seed": 7,
+          "start_violations": 133,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 1438,
+          "elapsed_seconds": 7.924,
+          "solved": false,
+          "best_graph_sha256": "c082a989d0f75f7f504ec00c8780f32ae70ebf2f0558ff0e25d535f9d0fff33d"
+        },
+        {
+          "seed": 8,
+          "start_violations": 217,
+          "best_violations": 2,
+          "best_cliques": 0,
+          "best_independent_sets": 2,
+          "final_violations": 2,
+          "accepted_moves": 1714,
+          "elapsed_seconds": 6.17,
+          "solved": false,
+          "best_graph_sha256": "85cffc63fc56db597be97cc0af8b7241a55ce76477ed38d769e8e41a59bfddec"
+        },
+        {
+          "seed": 9,
+          "start_violations": 125,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 1401,
+          "elapsed_seconds": 6.773,
+          "solved": false,
+          "best_graph_sha256": "308f39c7a0b5f450e53e5692ba4cd133bcf8042dced1d8bb1a858680a0209091"
+        }
+      ]
+    },
+    {
+      "id": "depth",
+      "command": "seq 10 17 | xargs -P 8 -I{} python3 experiments/ramsey-r55/search.py --seeds {} --iterations 100000 --sample-size 32 --audit-every 5000",
+      "execution": "eight parallel workers",
+      "run_count": 8,
+      "search_steps": 800000,
+      "elapsed_seconds_per_worker": {
+        "min": 139.043,
+        "median": 142.147,
+        "p90_inclusive": 146.334,
+        "max": 151.598,
+        "sum": 1143.08
+      },
+      "runs": [
+        {
+          "seed": 10,
+          "start_violations": 162,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 12018,
+          "elapsed_seconds": 141.38,
+          "solved": false,
+          "best_graph_sha256": "316e8730440156090cf234d843ab100da229b45aa4740aebbd67b9a5e0f3ebb9"
+        },
+        {
+          "seed": 11,
+          "start_violations": 188,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 12316,
+          "elapsed_seconds": 139.642,
+          "solved": false,
+          "best_graph_sha256": "c395cc9c20fddcbb83ca4c8de9eac93cb6bfbb38f3e560263b22216fd0e5518e"
+        },
+        {
+          "seed": 12,
+          "start_violations": 139,
+          "best_violations": 46,
+          "best_cliques": 22,
+          "best_independent_sets": 24,
+          "final_violations": 46,
+          "accepted_moves": 19310,
+          "elapsed_seconds": 142.914,
+          "solved": false,
+          "best_graph_sha256": "0a126deb34a364c4ddea4573e5f06b1918bab4a88197b6912e96463c4a61e4f5"
+        },
+        {
+          "seed": 13,
+          "start_violations": 157,
+          "best_violations": 42,
+          "best_cliques": 24,
+          "best_independent_sets": 18,
+          "final_violations": 42,
+          "accepted_moves": 18614,
+          "elapsed_seconds": 140.395,
+          "solved": false,
+          "best_graph_sha256": "7bdfc04d34d5b7a9f2b04e306901a3c28ead61c06d2743b1202be07b06bbf5c4"
+        },
+        {
+          "seed": 14,
+          "start_violations": 129,
+          "best_violations": 46,
+          "best_cliques": 25,
+          "best_independent_sets": 21,
+          "final_violations": 46,
+          "accepted_moves": 13936,
+          "elapsed_seconds": 144.078,
+          "solved": false,
+          "best_graph_sha256": "5adeb68efa0072afecae0ac9f5140b4b93ced759d1fee31b5881bdf6e0fe967b"
+        },
+        {
+          "seed": 15,
+          "start_violations": 128,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 12012,
+          "elapsed_seconds": 144.03,
+          "solved": false,
+          "best_graph_sha256": "8544af66f4d074f70bcdd54d9172cea9cd422b34327d433cf16841ab38c4eb13"
+        },
+        {
+          "seed": 16,
+          "start_violations": 159,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 11935,
+          "elapsed_seconds": 151.598,
+          "solved": false,
+          "best_graph_sha256": "6b2aec70d8980a5ae8287c480b5b832a496f62f139bb913fab0ebb1b2ab4abd2"
+        },
+        {
+          "seed": 17,
+          "start_violations": 176,
+          "best_violations": 2,
+          "best_cliques": 2,
+          "best_independent_sets": 0,
+          "final_violations": 2,
+          "accepted_moves": 12300,
+          "elapsed_seconds": 139.043,
+          "solved": false,
+          "best_graph_sha256": "d29e920ada280f852e9b7bcc1a3b3ce0f01e05fccdb1cbd9868a8198ba2e0efa"
+        }
+      ]
+    }
+  ]
+}
