@@ -11,7 +11,7 @@ It does not solve R(5,5).
 - Exact checker command:
 
 ```sh
-python3 checker.py --check current.g6 --vertices 43 --clique-size 5 --independent-size 5
+python3 finite-graph-v1.py --check candidate.g6 --vertices 43 --clique-size 5 --independent-size 5
 ```
 
 - Complete checker output:
