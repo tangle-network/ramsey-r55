@@ -20,7 +20,7 @@ Run the exact checker from the repository root:
 python3 finite-graph-v1.py --check candidate.g6 --vertices 43 --clique-size 5 --independent-size 5
 ```
 
-The command prints the graph digest, exact counts, and protocol evidence references.
+The command prints `candidate_ref`, the protocol `evidence_refs`, and an `evidence_json` object with the graph digest and exact counts.
 
 ## Contribute
 

@@ -32,6 +32,7 @@ CANDIDATE_PREFIX = "finite-graph:candidate:"
 CONFIG_PREFIX = "finite-graph:config:"
 BASELINE_PREFIX = "finite-graph:baseline:"
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+MAX_PROVENANCE_REF_BYTES = 256
 
 
 class CountLimitError(ValueError):
@@ -313,11 +314,16 @@ def baseline(reference):
 
 
 def require_exact_references(references, expected):
-    if (
-        not isinstance(references, list)
-        or len(references) != len(expected)
-        or set(references) != expected
+    if not isinstance(references, list):
+        raise ValueError("evidence references do not match the reconstructed graph")
+    if any(
+        not isinstance(reference, str)
+        or len(reference.encode("utf-8")) > MAX_PROVENANCE_REF_BYTES
+        or any(character in reference for character in "\r\n\x00")
+        for reference in references
     ):
+        raise ValueError("evidence references contain an invalid reference")
+    if len(set(references)) != len(references) or set(references) != expected:
         raise ValueError("evidence references do not match the reconstructed graph")
 
 
@@ -497,19 +503,23 @@ def check_candidate(path, vertex_count, clique_size, independent_size):
     )
     graph_digest = hashlib.sha256(canonical_candidate).hexdigest()
     encoded = base64.urlsafe_b64encode(canonical_candidate).decode().rstrip("=")
+    candidate_ref = f"{CANDIDATE_PREFIX}{encoded}"
     return {
-        "candidate_ref": f"{CANDIDATE_PREFIX}{encoded}",
+        "candidate_ref": candidate_ref,
         "evidence_refs": [
             f"evidence:finite-graph:{graph_digest}",
             EVALUATOR_REF,
             f"execution:finite-graph-v1:{graph_digest}",
             f"output:finite-graph:{graph_digest}",
         ],
-        "graph_sha256": graph_digest,
-        "vertex_count": vertex_count,
-        "clique_count": counts["cliques"],
-        "independent_set_count": counts["independent_sets"],
-        "forbidden_sets": counts["forbidden_sets"],
+        "evidence_json": {
+            "candidate_ref": candidate_ref,
+            "graph_sha256": graph_digest,
+            "vertex_count": vertex_count,
+            "clique_count": counts["cliques"],
+            "independent_set_count": counts["independent_sets"],
+            "forbidden_sets": counts["forbidden_sets"],
+        },
     }
 
 
